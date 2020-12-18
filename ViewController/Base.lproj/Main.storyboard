@@ -27,7 +27,7 @@
         <!--메모 목록-->
         <scene sceneID="2MJ-HZ-09c">
             <objects>
-                <viewController id="BlX-Lq-5Xo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoListViewController" id="BlX-Lq-5Xo" customClass="MemoListViewController" customModule="RxSwift_Memo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ojk-4W-y6O">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,7 @@
         <!--새 메모-->
         <scene sceneID="tDE-87-vMi">
             <objects>
-                <viewController id="Qsb-fm-c90" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoEditViewController" id="Qsb-fm-c90" customClass="MemoEditViewController" customModule="RxSwift_Memo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IEc-0f-c9i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,7 @@
         <!--메모 보기-->
         <scene sceneID="ksd-uq-xIJ">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="yup-O6-zbo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoDetailViewController" id="yup-O6-zbo" customClass="MemoDetailViewController" customModule="RxSwift_Memo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h6U-nW-POj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
