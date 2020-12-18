@@ -4,8 +4,20 @@
 target 'RxSwift Memo' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'RxSwift', '6.0.0-rc.2'
-    pod 'RxCocoa', '6.0.0-rc.2'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
+  # RxSwift Community Projects
+  pod 'NSObject+Rx'
+  pod 'RxSwiftExt'
+  pod 'Action'
+  pod 'RxDataSources'
+  pod "RxGesture"
+  pod 'RxReachability'
+  pod 'RxKeyboard'
 
+  # Networking
+  pod 'RxAlamofire'
+  
+  
 end
