@@ -46,6 +46,7 @@ class MemoDetailViewController: UIViewController,ViewModelBindableType {
             }
             .disposed(by: rx.disposeBag)
         editButton.rx.action = viewModel.makeEditAction()
+        deleteButton.rx.action = viewModel.makeDeleteAction()
         
         //과제: 아래는 tap으로 구현되어있는데 action으로 바꿔보기
         shareButton.rx.tap
