@@ -9,10 +9,22 @@ import Foundation
 import RxSwift
 import RxCocoa
 import Action
+import RxDataSources
+
+typealias MemoSectionModel = AnimatableSectionModel<Int,Memo>
 
 class MemoListViewModel:CommonViewModel {
+    
+    let dataSource:RxTableViewSectionedAnimatedDataSource<MemoSectionModel> = {
+        let ds = RxTableViewSectionedAnimatedDataSource<MemoSectionModel>(configureCell: {(dataSource,tableView,indexPath,memo) -> UITableViewCell in let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
+            cell.textLabel?.text = memo.content
+            return cell
+        })
+        ds.canEditRowAtIndexPath = {_,_ in return true}
+        return ds
+    }()
 
-    var memoList:Observable<[Memo]> {
+    var memoList:Observable<[MemoSectionModel]> {
         return storage.memoList()
     }
     

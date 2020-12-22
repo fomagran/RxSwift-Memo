@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 
+
 class MemoListViewController: UIViewController,ViewModelBindableType {
     
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -26,11 +27,11 @@ class MemoListViewController: UIViewController,ViewModelBindableType {
         viewModel.title
             .drive(navigationItem.rx.title)
             .disposed(by: rx.disposeBag)
+        
         viewModel.memoList
-            .bind(to: table.rx.items(cellIdentifier: "ListCell")) {
-                row,memo,cell in cell.textLabel?.text = memo.content
-            }
+            .bind(to: table.rx.items(dataSource:viewModel.dataSource))
             .disposed(by: rx.disposeBag)
+        
         
         addButton.rx.action = viewModel.makeCreateAction()
         
