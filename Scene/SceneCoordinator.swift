@@ -40,6 +40,13 @@ class SceneCoordinator: SceneCoordinatorType {
             guard let nav = currentVC.navigationController else { subject.onError(TransitionError.navigationControllerMissing)
                 break
             }
+            //뒤로가기 버튼 디버깅
+            nav.rx.willShow
+                .subscribe(onNext: {[unowned self] event in
+                    self.currentVC = event.viewController.sceneViewController
+                })
+                .disposed(by: disposeBag)
+            
             nav.pushViewController(target, animated: animated)
             currentVC = target.sceneViewController
             subject.onCompleted()
