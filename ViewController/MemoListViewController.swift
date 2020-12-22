@@ -19,9 +19,9 @@ class MemoListViewController: UIViewController,ViewModelBindableType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
-  
+    
     func bindViewModel() {
         viewModel.title
             .drive(navigationItem.rx.title)
@@ -33,7 +33,14 @@ class MemoListViewController: UIViewController,ViewModelBindableType {
             .disposed(by: rx.disposeBag)
         
         addButton.rx.action = viewModel.makeCreateAction()
+        
+        //메모 선택하기랑 메모 선택해제하기
+        Observable.zip(table.rx.modelSelected(Memo.self),
+                       table.rx.itemSelected)
+            .do(onNext: { [unowned self] (_,indexPath) in
+                    self.table.deselectRow(at: indexPath, animated: true)})
+            .map{$0.0}
+            .bind(to: viewModel.detailAction.inputs)
+            .disposed(by: rx.disposeBag)
     }
-
-
 }

@@ -17,15 +17,33 @@ class MemoDetailViewController: UIViewController,ViewModelBindableType {
     //MARK:LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
     }
     
-   
+    
     func bindViewModel() {
+        viewModel.title
+            .drive(navigationItem.rx.title)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel.contents
+            .bind(to: table.rx.items) { tableView,row,value in
+                switch row  {
+                case 0:
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "MemoDetailCell")!
+                    cell.textLabel?.text = value
+                    return cell
+                case 1:
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "MemoDetailDateCell")!
+                    cell.textLabel?.text = value
+                    return cell
+                default:
+                    fatalError()
+                }
+            }
+            .disposed(by: rx.disposeBag)
+        
         
     }
-    
-
-
 }

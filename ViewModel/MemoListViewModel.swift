@@ -16,18 +16,21 @@ class MemoListViewModel:CommonViewModel {
         return storage.memoList()
     }
     
+    //add버튼 눌렀을때
     func performUpdate(memo:Memo) -> Action<String,Void> {
         return Action { input in
             return self.storage.updateMemo(memo: memo, content: input).map { _ in}
         }
     }
     
+    //캔슬버튼 눌렀을때
     func performCancel(memo:Memo) -> CocoaAction {
         return Action{
             return self.storage.deleteMemo(memo: memo).map{_ in}
         }
     }
     
+    //에딧뷰컨트롤러로 화면전환
     func makeCreateAction() -> CocoaAction {
         return CocoaAction { _ in
             return self.storage.createMemo(content: "")
@@ -39,4 +42,14 @@ class MemoListViewModel:CommonViewModel {
                 }
         }
     }
+    
+    //디테일뷰컨트롤러로 화면 전환
+    lazy var detailAction:Action<Memo,Void> = {
+        return Action { memo in
+            let detailViewModel = MemoDetailViewModel(memo: memo, title: "메모 보기", sceneCoordinator: self.sceneCoordinator, storage: self.storage)
+            let detailScene = Scene.detail(detailViewModel)
+            
+            return self.sceneCoordinator.transition(to: detailScene, using: .push, animated: true).asObservable().map{_ in }
+        }
+    }()
 }

@@ -204,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eY1-ZE-0WZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2634.7826086956525" y="83.705357142857139"/>
+            <point key="canvasLocation" x="3403" y="84"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jSi-gQ-d7B">
@@ -241,6 +241,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNf-sA-kEK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1796" y="-603"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cdJ-Hn-3GX">
+            <objects>
+                <navigationController storyboardIdentifier="MemoDetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hiA-Ow-oeO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="plC-IJ-d8h">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yup-O6-zbo" kind="relationship" relationship="rootViewController" id="kKi-o0-ZXE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AUe-6Y-QEA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2635" y="84"/>
         </scene>
     </scenes>
     <resources>
