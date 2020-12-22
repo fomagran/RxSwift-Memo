@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MemoDetailViewController: UIViewController,ViewModelBindableType {
     //MARK:Properties
@@ -44,5 +46,16 @@ class MemoDetailViewController: UIViewController,ViewModelBindableType {
             }
             .disposed(by: rx.disposeBag)
         editButton.rx.action = viewModel.makeEditAction()
+        
+        //과제: 아래는 tap으로 구현되어있는데 action으로 바꿔보기
+        shareButton.rx.tap
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
+            .subscribe(onNext:{[weak self] _ in
+                guard let memo = self?.viewModel.contents else {return}
+                
+                let vc = UIActivityViewController(activityItems: [memo], applicationActivities: nil)
+                self?.present(vc, animated: true, completion: nil)
+            })
+            .disposed(by: rx.disposeBag)
     }
 }
