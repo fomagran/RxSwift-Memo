@@ -85,14 +85,38 @@
                     <view key="view" contentMode="scaleToFill" id="IEc-0f-c9i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c16-vP-D1Z">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="z5x-b8-ylm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="c16-vP-D1Z" firstAttribute="leading" secondItem="z5x-b8-ylm" secondAttribute="leading" id="1tW-dV-n8B"/>
+                            <constraint firstItem="c16-vP-D1Z" firstAttribute="top" secondItem="IEc-0f-c9i" secondAttribute="top" id="GSf-JY-vMJ"/>
+                            <constraint firstAttribute="bottom" secondItem="c16-vP-D1Z" secondAttribute="bottom" id="NsX-Cv-yr1"/>
+                            <constraint firstItem="c16-vP-D1Z" firstAttribute="trailing" secondItem="z5x-b8-ylm" secondAttribute="trailing" id="Plm-Il-Ut4"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="새 메모" id="q60-nq-C6U"/>
+                    <navigationItem key="navigationItem" title="새 메모" id="q60-nq-C6U">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dOw-ea-XIn"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="F6g-Zw-54n"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="dOw-ea-XIn" id="tV6-AI-axV"/>
+                        <outlet property="contentTextView" destination="c16-vP-D1Z" id="sWO-dW-F6h"/>
+                        <outlet property="saveButton" destination="F6g-Zw-54n" id="FGJ-TY-4QS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REG-v5-Vrd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2635" y="-603"/>
+            <point key="canvasLocation" x="2634.7826086956525" y="-603.34821428571422"/>
         </scene>
         <!--메모 보기-->
         <scene sceneID="ksd-uq-xIJ">
@@ -149,6 +173,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
